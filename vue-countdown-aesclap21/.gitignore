@@ -1,0 +1,7 @@
+node_modules/
+public/
+.DS_Store
+babel.config.js
+package-lock.json
+package.json
+README.md
