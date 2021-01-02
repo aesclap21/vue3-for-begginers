@@ -1,0 +1,53 @@
+<template lang="html">
+  <p
+    :style="cssObject"
+    :class="{ bold: section.isBold, italic: section.isItalic }"
+  >
+    {{ section.userInput }}
+  </p>
+</template>
+
+<script>
+import { computed } from 'vue';
+
+export default {
+  props: {
+    section: {
+      type: Object
+    }
+  },
+  setup(props) {
+    const cssObject = computed( () => {
+      return {
+        border: '1px dotted whitesmoke',
+        background: 'rgba(255, 255, 255, 0.4)',
+        display: 'flex',
+        fontFamily: props.section.fontFamily,
+        fontSize: props.section.fontSize,
+        color: props.section.color,
+        height: props.section.height + 'px',
+        justifyContent: props.section.justifyContent,
+        alignItems: props.section.alignItems
+      };
+    });
+    return {
+      cssObject,
+    }
+  }
+};
+</script>
+
+<style lang="css" scoped>
+p {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+</style>

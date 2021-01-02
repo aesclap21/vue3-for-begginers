@@ -1,0 +1,26 @@
+<template lang="html">
+  <h1>Admin</h1>
+</template>
+
+<script>
+import { onBeforeRouteLeave } from 'vue-router';
+
+export default {
+  // beforeRouteLeave() {
+  //   const confirm = window.confirm(
+  //     'Do you really want to leave? You have unsaved changes'
+  //   );
+  //   if (!confirm) return false
+  // }
+  setup() {
+    onBeforeRouteLeave( () => {
+      const confirm = window.confirm(
+        'Do you really want to leave? You have unsaved changes'
+      );
+      if (!confirm) return false
+    })
+  }
+};
+</script>
+
+<style lang="css" scoped></style>
